@@ -7,6 +7,8 @@ import { CounterComponent } from './counter.component';
 import { Counter2Component } from './counter-2.component';
 import { NameParentComponent } from './name-parent.component';
 import { NameChildComponent } from './name-child.component';
+import { VersionParentComponent } from './version-parent.component';
+import { VersionChildComponent } from './version-child.component';
 
 let directs: any[] = [
   AppComponent,
@@ -14,7 +16,9 @@ let directs: any[] = [
   CounterComponent,
   Counter2Component,
   NameParentComponent,
-  NameChildComponent
+  NameChildComponent,
+  VersionParentComponent,
+  VersionChildComponent
 ];
 
 @NgModule({
