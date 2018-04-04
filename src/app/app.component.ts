@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  helloName: string;
+
+  num: number = 0;
+  parentCount: number = 0;
+
+  constructor() {
+    this.helloName = 'Other World';
+  }
+
+  ngOnChanges(val: number) {
+    this.parentCount = val;
+  }
 }
