@@ -14,7 +14,9 @@ import { VoteTakerComponent } from './votetaker.component';
 import { OanhCounterComponent } from './oanh-counter.component';
 import { OanhCounterChildComponent} from './oanh-counter-child.component';
 import { ChildComponent } from './child.component';
-import { ChildSelectComponent } from './child-select.component'
+import { ChildSelectComponent } from './child-select.component';
+import { NgStyleComponent } from './ng-style-directive.component';
+import { NgClassDirective } from './ng-class-directive.component'
 
 
 let directs: any[] = [
@@ -26,6 +28,8 @@ let directs: any[] = [
   Counter2Component,
   NameParentComponent,
   NameChildComponent,
+  NgClassDirective,
+  NgStyleComponent,
   OanhCounterChildComponent,
   OanhCounterComponent,
   VersionParentComponent,
