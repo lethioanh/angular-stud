@@ -1,44 +1,56 @@
-<div>
-  <rio-hello name="World "></rio-hello>
-  <rio-hello [name]="helloName "></rio-hello>
+<div style="border: 2px solid black; padding: 1rem;">
+  <div>
+    <rio-hello name="World "></rio-hello>
+    <rio-hello [name]="helloName "></rio-hello>
+  </div>
+  <h1>Passing Data into a Component</h1>
+  <rio-counter></rio-counter>
+
+  <h1>
+    Responding to Component Events
+  </h1>
+  <div>
+    Parent Num: {{num}} <br>
+    Parent Count: {{parentCount}}
+    <rio-counter-2 [count]="num"></rio-counter-2>
+  </div>
+
+  <h2>Test Intercept input property changes with a setter ("Master")</h2>
+  <app-name-parent></app-name-parent>
+
+
+  <h2>
+    Intercept input property changes with ngOnChanges()
+  </h2>
+
+  <app-version-parent></app-version-parent>
+
+
+  <h2>
+    Parent listens for child event
+  </h2>
+
+  <app-vote-taker></app-vote-taker>
+
+  <app-oanh-counter></app-oanh-counter>
+
+  <h3>Projection</h3>
+
+  <app-child>
+    <p>My <i>projected1</i> conent.</p>
+    <p>My <i>projected2</i> conent.</p>
+  </app-child>
+
+  <h4>Multi projection</h4>
+  <app-child-select>
+    <section> Section content</section>
+    <div class="class-select">
+      div with .class-select
+    </div>
+    <footer> Footer content</footer>
+    <header> Header conent</header>
+  </app-child-select>
 </div>
-<h1>Passing Data into a Component</h1>
-<rio-counter></rio-counter>
-
-<h1>
-  Responding to Component Events
-</h1>
-<div>
-  Parent Num: {{num}} <br>
-  Parent Count: {{parentCount}}
-  <rio-counter-2 [count]="num"></rio-counter-2>
-</div>
-
-<h2>Test Intercept input property changes with a setter ("Master")</h2>
-<app-name-parent></app-name-parent>
-
-
-<h2>
-  Intercept input property changes with ngOnChanges()
-</h2>
-
-<app-version-parent></app-version-parent>
-
-
-<h2>
-  Parent listens for child event
-</h2>
-
-<app-vote-taker></app-vote-taker>
-
-<app-oanh-counter></app-oanh-counter>
-
-<h3>Projection</h3>
-
-<app-child>
-  <p>My <i>projected1</i> conent.</p>
-  <p>My <i>projected2</i> conent.</p>
-</app-child>
 
 
 

@@ -14,12 +14,14 @@ import { VoteTakerComponent } from './votetaker.component';
 import { OanhCounterComponent } from './oanh-counter.component';
 import { OanhCounterChildComponent} from './oanh-counter-child.component';
 import { ChildComponent } from './child.component';
+import { ChildSelectComponent } from './child-select.component'
 
 
 let directs: any[] = [
   AppComponent,
   HelloComponent,
   ChildComponent,
+  ChildSelectComponent,
   CounterComponent,
   Counter2Component,
   NameParentComponent,
