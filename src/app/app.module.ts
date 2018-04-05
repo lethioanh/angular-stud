@@ -16,7 +16,9 @@ import { OanhCounterChildComponent} from './oanh-counter-child.component';
 import { ChildComponent } from './child.component';
 import { ChildSelectComponent } from './child-select.component';
 import { NgStyleComponent } from './ng-style-directive.component';
-import { NgClassDirective } from './ng-class-directive.component'
+import { NgClassDirective } from './ng-class-directive.component';
+import { NgifDirective } from './ng-if-directive.component';
+import { NgForDirective } from './ng-for-directive.component';
 
 
 let directs: any[] = [
@@ -29,6 +31,8 @@ let directs: any[] = [
   NameParentComponent,
   NameChildComponent,
   NgClassDirective,
+  NgifDirective,
+  NgForDirective,
   NgStyleComponent,
   OanhCounterChildComponent,
   OanhCounterComponent,

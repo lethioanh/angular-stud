@@ -61,6 +61,5 @@ import { Component } from '@angular/core';
 })
 
 export class NgClassDirective {
-  flat: boolean = false;
-
+  flat: boolean = true;
 }

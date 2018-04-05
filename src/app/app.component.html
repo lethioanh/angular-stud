@@ -67,6 +67,40 @@
 
     </li>
   </ul>
+  <h2 style="color: darkolivegreen;">Structural Directives</h2>
+  <ul>
+    <li>
+      <h5> Ngif directive</h5>
+      <button type="button" (click)="toggleExist()"> Toggle Component</button>
+      <hr>
+      <app-if-directive *ngIf="exist">
+        Hello
+      </app-if-directive>
+    </li>
+    <li>
+      <h5>NgFor Directive</h5>
+      <ul>
+        <app-ng-for-directive *ngFor=" let episode of episodes" [episode]="episode" >
+          <li>
+            {{episode.title}}
+          </li>
+        </app-ng-for-directive>
+      </ul>
+      <h3> Cách viết khác của ngFor</h3>
+      <ul>
+        <ng-template ngFor [ngForOf]="episodes"  let-episode>
+          <li>
+            <app-ng-for-directive [episode]="episode">
+              {{episode.title}}
+            </app-ng-for-directive>
+          </li>
+        </ng-template>
+      </ul>
+
+    </li>
+  </ul>
+
+
 </div>
 
 
