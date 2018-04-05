@@ -11,6 +11,8 @@ import { VersionParentComponent } from './version-parent.component';
 import { VersionChildComponent } from './version-child.component';
 import { VoterComponent } from './voter.component';
 import { VoteTakerComponent } from './votetaker.component';
+import { OanhCounterComponent } from './oanh-counter.component';
+import { OanhCounterChildComponent} from './oanh-counter-child.component';
 
 
 let directs: any[] = [
@@ -20,6 +22,8 @@ let directs: any[] = [
   Counter2Component,
   NameParentComponent,
   NameChildComponent,
+  OanhCounterChildComponent,
+  OanhCounterComponent,
   VersionParentComponent,
   VersionChildComponent,
   VoterComponent,
