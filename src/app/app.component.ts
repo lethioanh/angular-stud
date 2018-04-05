@@ -15,7 +15,4 @@ export class AppComponent {
     this.helloName = 'Other World';
   }
 
-  ngOnChanges(val: number) {
-    this.parentCount = val;
-  }
 }
