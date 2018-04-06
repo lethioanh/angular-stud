@@ -141,6 +141,33 @@
       </div>
     </li>
 
+    <li>
+      <h3> Use ngFor and NgIf</h3>
+      <ng-template ngFor [ngForOf]="[1,4,56,9,2,3,4,5,6,7,8,9]" let-item>
+        <div *ngIf="item >3; else showColor" class="cl-item">{{item}}</div>
+      </ng-template>
+    </li>
+
+    <li>
+      <div class="tabs-selection">
+        <app-tab
+          *ngFor="let tab of tabs; let i = index"
+          [active]="isSelectedNum(i)"
+          (click)="setTabNum(i)">
+          {{ tab.title }}
+        </app-tab>
+      </div>
+
+      <div [ngSwitch]="tabNumber">
+        <ng-template ngFor [ngForOf]="tabs" let-tab let-i="index">
+          <app-tab-content *ngSwitchCase="i">
+            {{tab.content}}
+          </app-tab-content>
+        </ng-template>
+        <app-tab-content *ngSwitchDefault>Select a tab</app-tab-content>
+      </div>
+    </li>
+
   </ul>
 
 

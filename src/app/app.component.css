@@ -2,3 +2,11 @@
   float: right;
   margin-bottom: 2rem;
 }
+.cl-not-it {
+  color: cornflowerblue;
+  font-size: 15px;
+}
+
+.cl-item {
+  color: bisque;
+}

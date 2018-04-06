@@ -54,4 +54,19 @@ export class AppComponent {
     return this.tab === num;
   }
 
+  tabNumber: number = 0;
+  tabs: any = [
+    { title: 'Tab 1', content: 'Tab content 1' },
+    { title: 'Tab 2', content: 'Tab content 2' },
+    { title: 'Tab 3', content: 'Tab content 3' }
+  ]
+
+  setTabNum(num: number) {
+    this.tabNumber = num;
+  }
+
+  isSelectedNum(num: number) {
+    return this.tabNumber === num;
+  }
+
 }
