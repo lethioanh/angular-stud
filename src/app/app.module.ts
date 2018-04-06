@@ -19,7 +19,9 @@ import { NgStyleComponent } from './ng-style-directive.component';
 import { NgClassDirective } from './ng-class-directive.component';
 import { NgifDirective } from './ng-if-directive.component';
 import { NgForDirective } from './ng-for-directive.component';
-
+import { TabContentComponent } from './tab-content.component';
+import { TabComponent} from './tab.component';
+import { Tab3Component } from  './tab3.component';
 
 let directs: any[] = [
   AppComponent,
@@ -36,6 +38,9 @@ let directs: any[] = [
   NgStyleComponent,
   OanhCounterChildComponent,
   OanhCounterComponent,
+  TabComponent,
+  Tab3Component,
+  TabContentComponent,
   VersionParentComponent,
   VersionChildComponent,
   VoterComponent,

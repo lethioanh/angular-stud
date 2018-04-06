@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-ng-for-directive',
@@ -10,6 +10,14 @@ import { Component, Input } from '@angular/core';
   `
 })
 
-export class NgForDirective {
-  @Input() episode: any;
+export class NgForDirective implements OnDestroy, OnInit {
+  @Input() episode: number;
+
+  ngOnInit(){
+    console.log('component created', this.episode);
+  }
+
+  ngOnDestroy() {
+    console.log('destroying component', this.episode);
+  }
 }

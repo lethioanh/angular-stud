@@ -37,3 +37,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 //    "postinstall": "ng build --aot -prod",
 //    "deploy": "git push origin master && git push heroku master"
 //  },
+
+    "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --prod",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },

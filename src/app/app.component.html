@@ -86,6 +86,7 @@
           </li>
         </app-ng-for-directive>
       </ul>
+      <hr>
       <h3> Cách viết khác của ngFor</h3>
       <ul>
         <ng-template ngFor [ngForOf]="episodes"  let-episode>
@@ -96,8 +97,50 @@
           </li>
         </ng-template>
       </ul>
-
+      <hr>
+      <h3>Local Variables: index, first, last, even, odd</h3>
+      <app-ng-for-directive *ngFor="let episode of episodes; let i = index; let isOdd = odd"
+                            [episode]="episode"
+                            [ngClass]="{odd: isOdd}">
+        {{i+1}}. {{episode.title}}
+      </app-ng-for-directive>
+      <hr>
+      <h2> Cách viết khác</h2>
+      <ng-template ngFor [ngForOf]="episodes" let-episode let-i="index" let-isOdd="odd">
+        <app-ng-for-directive [episode]="episode" [ngClass]="{odd: isOdd}">
+          {{i+1}}. {{episode.title}}
+        </app-ng-for-directive>
+      </ng-template>
+      <hr>
+      <h3>trackBy:</h3>
+      <button (click)="addOtherEpisode()"
+        [disabled]="otherEpisodes.length === 0"
+        class="btn-add">
+        Add Episode
+      </button>
+      <br>
+      <app-ng-for-directive *ngFor="let episode of episodes;trackBy: trackById; let i = index; let isOdd = odd;"
+                            [episode]="episode"
+                            [ngClass]="{odd: isOdd}">
+        {{i+1}}. {{episode.title}}
+      </app-ng-for-directive>
     </li>
+    <li>
+      <h3> NgSwitch Directives</h3>
+      <div class="tab-selection">
+        <app-tab [active]="isSelected(1)" (click)="setTab(1)"> Tab 1</app-tab>
+        <app-tab [active]="isSelected(2)" (click)="setTab(2)"> Tab 2</app-tab>
+        <app-tab [active]="isSelected(3)" (click)="setTab(3)"> Tab 3</app-tab>
+      </div>
+
+      <div [ngSwitch]="tab">
+        <app-tab-content *ngSwitchCase="1">Tab Conent 1</app-tab-content>
+        <app-tab-content *ngSwitchCase="2">Tab Conent 2</app-tab-content>
+        <app-tab-content *ngSwitchCase="3">Tab Conent 3</app-tab-content>
+        <app-tab-content *ngSwitchDefault> Select a Tab</app-tab-content>
+      </div>
+    </li>
+
   </ul>
 
 
