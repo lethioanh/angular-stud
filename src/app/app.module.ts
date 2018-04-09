@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -22,9 +23,13 @@ import { NgForDirective } from './ng-for-directive.component';
 import { TabContentComponent } from './tab-content.component';
 import { TabComponent} from './tab.component';
 import { Tab3Component } from  './tab3.component';
+import { AlertComponent } from './alert/alert.component'
+import { AlertListQueryComponent } from './alert-list-query.component'
 
 let directs: any[] = [
+  AlertComponent,
   AppComponent,
+  AlertListQueryComponent,
   HelloComponent,
   ChildComponent,
   ChildSelectComponent,
@@ -50,7 +55,8 @@ let directs: any[] = [
 @NgModule({
   declarations: directs,
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -170,8 +170,44 @@
 
   </ul>
 
+<h4>ViewChild</h4>
+  <app-alert>
+    my alert
+  </app-alert>
+  <button (click)="showAlert()">Show Alert</button>
+
+  <h3>
+    List query ViewChild
+  </h3>
+  <app-alert-list-query ok="Next" (close)="showAlertLQ(2)">
+    Step 1: Learn Angular
+  </app-alert-list-query>
+  <app-alert-list-query ok="Next" (close)="showAlertLQ(3)">
+    Step 2: Love angular
+  </app-alert-list-query>
+
+  <app-alert-list-query ok="Close">
+    Step 3: Build app
+  </app-alert-list-query>
+
+  <button (click)="showAlertLQ(1)"> Show steps </button>
+
+
+  <h4>View child and view children</h4>
+  <app-alert-list-query #first ok="Next" (close)="showAlertLQ(2)">
+    Step 1: Learn Angular
+  </app-alert-list-query>
+  <app-alert-list-query ok="Next" (close)="showAlertLQ(3)">
+    Step 2: Love angular
+  </app-alert-list-query>
+
+  <app-alert-list-query ok="Close">
+    Step 3: Build app
+  </app-alert-list-query>
+  <button (click)="showAlertLQ(1)"> Show steps </button>
 
 </div>
+
 
 
 

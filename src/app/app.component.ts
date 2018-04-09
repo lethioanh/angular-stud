@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, QueryList, AfterViewInit, ViewChildren } from '@angular/core';
+import { AlertComponent } from './alert/alert.component';
+import { AlertListQueryComponent } from './alert-list-query.component';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  @ViewChild(AlertComponent) alert: AlertComponent;
+  @ViewChild('first') alertF: AlertListQueryComponent;
+  @ViewChildren(AlertListQueryComponent) alerts: QueryList<AlertListQueryComponent>;
+  alertsArr = [];
   helloName: string;
   num: number = 0;
   parentCount: number = 0;
@@ -69,4 +75,15 @@ export class AppComponent {
     return this.tabNumber === num;
   }
 
+  showAlert() {
+    this.alert.show();
+  }
+
+  ngAfterViewInit() {
+    this.alertsArr = this.alerts.toArray();
+  }
+
+  showAlertLQ(step) {
+    this.alertsArr[step - 1].show()
+;  }
 }
