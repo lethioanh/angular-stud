@@ -18,7 +18,7 @@ import 'rxjs/add/operator/filter';
 })
 
 export class ObservableArrayOperationsComponent {
-  private doctors = [];
+  doctors = [];
   constructor(http: Http, cd: ChangeDetectorRef) {
     http.get('http://jsonplaceholder.typicode.com/users/')
       .flatMap(data => data.json())

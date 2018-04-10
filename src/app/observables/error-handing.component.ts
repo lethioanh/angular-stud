@@ -11,9 +11,6 @@ import { Observable  } from 'rxjs/Observable';
     <h6 style="margin-bottom: 0">ERRORS:</h6>
     <div>Errors: {{anyErrors}}</div>
 
-    <h6 style="margin-bottom: 0">FINISHED:</h6>
-    <div> Finished: {{finished}}</div>
-
     <button style="margin-top: 2rem;" (click)="init()">Init</button>
   `
 })
