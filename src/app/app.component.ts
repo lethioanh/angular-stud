@@ -14,7 +14,6 @@ export class AppComponent implements AfterContentInit {
   alertsArr = [];
   helloName: string;
   num: number = 0;
-  parentCount: number = 0;
   exist: boolean = true;
   node: string;
   episodes = [
@@ -43,8 +42,8 @@ export class AppComponent implements AfterContentInit {
   }
 
   addOtherEpisode() {
-    let episodesCopy =  JSON.parse(JSON.stringify(this.episodes));
-    this.episodes= [...episodesCopy, this.otherEpisodes.pop()];
+    const episodesCopy =  JSON.parse(JSON.stringify(this.episodes));
+    this.episodes = [...episodesCopy, this.otherEpisodes.pop()];
   }
 
   trackById(index: number, episode: any): number {

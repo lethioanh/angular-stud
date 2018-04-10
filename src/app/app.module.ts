@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -30,6 +31,9 @@ import { HelloNativeComponent } from './view-encapsulation/hello-native.componen
 import { HelloNoneComponent } from './view-encapsulation/hello-none.component';
 import { UsingObservableComponent } from './observables/using-observables.component';
 import { ErrorHandingComponent } from './observables/error-handing.component';
+import { ObservableFormEventsComponent } from './observables/observable-form-events.component';
+import { ObservableArrayOperationsComponent } from './observables/observables-array-operations.component';
+import { HttpModule } from '@angular/http';
 
 const directs: any[] = [
   AlertComponent,
@@ -59,16 +63,24 @@ const directs: any[] = [
   VoterComponent,
   VoteTakerComponent,
   UsingObservableComponent,
-  ErrorHandingComponent
+  ErrorHandingComponent,
+  ObservableFormEventsComponent,
+  ObservableArrayOperationsComponent
 ];
 
 @NgModule({
   declarations: directs,
   imports: [
     BrowserModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
 export class AppModule { }
