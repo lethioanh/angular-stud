@@ -28,7 +28,8 @@ import { AlertListQueryComponent } from './alert-list-query.component';
 import { HelloEmulatedComponent} from './view-encapsulation/hello-emulated.component';
 import { HelloNativeComponent } from './view-encapsulation/hello-native.component';
 import { HelloNoneComponent } from './view-encapsulation/hello-none.component';
-import { UsingObservableComponent } from './observables/using-observables.component'
+import { UsingObservableComponent } from './observables/using-observables.component';
+import { ErrorHandingComponent } from './observables/error-handing.component';
 
 const directs: any[] = [
   AlertComponent,
@@ -57,7 +58,8 @@ const directs: any[] = [
   VersionChildComponent,
   VoterComponent,
   VoteTakerComponent,
-  UsingObservableComponent
+  UsingObservableComponent,
+  ErrorHandingComponent
 ];
 
 @NgModule({

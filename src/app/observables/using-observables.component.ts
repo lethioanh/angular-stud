@@ -19,8 +19,8 @@ import { Observable  } from 'rxjs/Observable';
 })
 
 export class UsingObservableComponent {
-  private data: Observable<Array<number>>;
-  private values: Array<number> = [];
+  private data: Observable<number>;
+  private values: number[] = [];
   private anyErrors: boolean;
   private finished: boolean;
 
@@ -29,11 +29,11 @@ export class UsingObservableComponent {
   init() {
     this.data = new Observable(observer => {
       setTimeout(() => {
-        observer.next(+42);
+        observer.next(42);
       }, 1000);
 
       setTimeout(() => {
-        observer.next(+43);
+        observer.next(43);
       }, 2000);
 
       setTimeout(() => {
@@ -41,7 +41,7 @@ export class UsingObservableComponent {
       }, 3000);
     });
 
-    let subscription = this.data.subscribe(
+    const subs = this.data.subscribe(
       value => this.values.push(value),
       error => this.anyErrors = true,
       () => this.finished = true
