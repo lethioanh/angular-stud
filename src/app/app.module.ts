@@ -21,16 +21,23 @@ import { NgClassDirective } from './ng-class-directive.component';
 import { NgifDirective } from './ng-if-directive.component';
 import { NgForDirective } from './ng-for-directive.component';
 import { TabContentComponent } from './tab-content.component';
-import { TabComponent} from './tab.component';
-import { Tab3Component } from  './tab3.component';
-import { AlertComponent } from './alert/alert.component'
-import { AlertListQueryComponent } from './alert-list-query.component'
+import { TabComponent } from './tab.component';
+import { Tab3Component } from './tab3.component';
+import { AlertComponent } from './alert.component';
+import { AlertListQueryComponent } from './alert-list-query.component';
+import { HelloEmulatedComponent} from './view-encapsulation/hello-emulated.component';
+import { HelloNativeComponent } from './view-encapsulation/hello-native.component';
+import { HelloNoneComponent } from './view-encapsulation/hello-none.component';
+import { UsingObservableComponent } from './observables/using-observables.component'
 
-let directs: any[] = [
+const directs: any[] = [
   AlertComponent,
   AppComponent,
   AlertListQueryComponent,
   HelloComponent,
+  HelloEmulatedComponent,
+  HelloNativeComponent,
+  HelloNoneComponent,
   ChildComponent,
   ChildSelectComponent,
   CounterComponent,
@@ -49,7 +56,8 @@ let directs: any[] = [
   VersionParentComponent,
   VersionChildComponent,
   VoterComponent,
-  VoteTakerComponent
+  VoteTakerComponent,
+  UsingObservableComponent
 ];
 
 @NgModule({

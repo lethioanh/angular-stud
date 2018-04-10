@@ -1,5 +1,5 @@
-import { Component, ViewChild, QueryList, AfterViewInit, ViewChildren } from '@angular/core';
-import { AlertComponent } from './alert/alert.component';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, QueryList, ViewChild,  ViewChildren } from '@angular/core';
+import { AlertComponent } from './alert.component';
 import { AlertListQueryComponent } from './alert-list-query.component';
 
 @Component({
@@ -7,7 +7,7 @@ import { AlertListQueryComponent } from './alert-list-query.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements AfterContentInit {
   @ViewChild(AlertComponent) alert: AlertComponent;
   @ViewChild('first') alertF: AlertListQueryComponent;
   @ViewChildren(AlertListQueryComponent) alerts: QueryList<AlertListQueryComponent>;
@@ -16,6 +16,7 @@ export class AppComponent {
   num: number = 0;
   parentCount: number = 0;
   exist: boolean = true;
+  node: string;
   episodes = [
     { title: 'Winter Is Coming', director: 'Tim Van Patten' },
     { title: 'The Kingsroad', director: 'Tim Van Patten' },
@@ -33,7 +34,7 @@ export class AppComponent {
     { title: 'Oathkeeper', director: 'Michelle MacLaren', id: 11 }
   ];
 
-  constructor() {
+  constructor( private elementRef: ElementRef ) {
     this.helloName = 'Other World';
   }
 
@@ -84,6 +85,15 @@ export class AppComponent {
   }
 
   showAlertLQ(step) {
-    this.alertsArr[step - 1].show()
-;  }
+    this.alertsArr[step - 1].show();
+  }
+
+  ngAfterContentInit() {
+    const tmp = document.createElement('div');
+    const el = this.elementRef.nativeElement.cloneNode(true);
+
+    tmp.appendChild(el);
+    this.node = tmp.innerHTML;
+  }
+
 }
