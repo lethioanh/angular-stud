@@ -32,7 +32,7 @@ export class AppComponent implements AfterContentInit {
     { title: 'Breaker of Chains', director: 'Michelle MacLaren', id: 10 },
     { title: 'Oathkeeper', director: 'Michelle MacLaren', id: 11 }
   ];
-
+  parentCount: number = 0;
   constructor( private elementRef: ElementRef ) {
     this.helloName = 'Other World';
   }

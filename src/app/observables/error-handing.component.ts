@@ -19,9 +19,9 @@ import { Observable  } from 'rxjs/Observable';
 })
 
 export class ErrorHandingComponent {
-  private data: Observable<number>;
-  private values: number[];
-  private anyErrors: boolean;
+  data: Observable<number>;
+  values: number[];
+  anyErrors: boolean;
 
   constructor() {
   }
