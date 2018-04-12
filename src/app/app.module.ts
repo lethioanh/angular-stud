@@ -33,10 +33,23 @@ import { UsingObservableComponent } from './observables/using-observables.compon
 import { ErrorHandingComponent } from './observables/error-handing.component';
 import { ObservableFormEventsComponent } from './observables/observable-form-events.component';
 import { ObservableArrayOperationsComponent } from './observables/observables-array-operations.component';
+import { SearchService } from './services/search.service';
 import { HttpModule } from '@angular/http';
+import { MovieComponent } from './enforcing-immutability/movie.component';
+import { VisitRangleComponent } from './Directive/visit-rangle.component';
+import { ConfirmDirective } from './Directive/confirm.directive';
+import { HighlightDivDirective } from './Directive/highlight-div.directive';
+import { HighlightPDirective } from './Directive/highlight-p.directive';
+import { HighlightDirective } from './Directive/highlight.directive';
+import { CardComponent } from './Directive/card.component';
+import { DelayDirective } from './Directive/delay.directive';
+import { FormatFileSizePipe } from './pipes/format-file-size.pipe';
 
 const directs: any[] = [
   AlertComponent,
+  HighlightDivDirective,
+  HighlightPDirective,
+  HighlightDirective,
   AppComponent,
   AlertListQueryComponent,
   HelloComponent,
@@ -65,7 +78,13 @@ const directs: any[] = [
   UsingObservableComponent,
   ErrorHandingComponent,
   ObservableFormEventsComponent,
-  ObservableArrayOperationsComponent
+  ObservableArrayOperationsComponent,
+  MovieComponent,
+  VisitRangleComponent,
+  ConfirmDirective,
+  CardComponent,
+  DelayDirective,
+  FormatFileSizePipe
 ];
 
 @NgModule({
@@ -74,9 +93,10 @@ const directs: any[] = [
     BrowserModule,
     AngularFontAwesomeModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ SearchService ],
   bootstrap: [AppComponent],
   exports: [
     FormsModule,

@@ -26,7 +26,6 @@ export class ObservableArrayOperationsComponent {
       .map((person) => 'Dr. ' + person['name'])
       .subscribe((data) => {
         this.doctors.push(data);
-        console.log(this.doctors, data);
         cd.detectChanges();
       });
   }

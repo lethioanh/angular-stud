@@ -1,4 +1,22 @@
 <div style="border: 2px solid black; padding: 1rem;">
+
+  <h3 style="color: aquamarine">Pipes</h3>
+  <p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" | lowercase }}</p>
+  <p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" }}</p>
+
+  <div>
+    <p *ngFor="let f of fileSizes">{{ f | formatFileSize }}</p>
+    <p>{{ largeFileSize | formatFileSize:true }}</p>
+  </div>`
+
+  <h3>Creating a Structural Directive</h3>
+  <div *ngFor="let item of [1,2,3,4,5,6];">
+    <app-card *appDelay="500 * item; let loaded = loadTime;">
+      {{item}}
+      <div class="sub">{{loaded | number:'1.4-4'}}</div>
+    </app-card>
+  </div>
+
   <div>
     <rio-hello name="World "></rio-hello>
     <rio-hello [name]="helloName "></rio-hello>
@@ -238,6 +256,29 @@
       <app-observable-array-operations></app-observable-array-operations>
     </li>
   </ul>
+  <form [formGroup]="coolForm">
+    <input formControlName="search" placeholder="Search Spotify artist">
+    <input (click)="search()" type="submit" value="SearchFor Spotify Artist">
+  </form>
+
+  <div *ngFor="let artist of result">
+    {{artist.name}}
+  </div>
+
+  <h1>MovieApp</h1>
+  <p>{{ slogan }}</p>
+  <button type="button" (click)="changeActor()">
+    Change Actor
+  </button>
+  <app-movie [title]="title" [actor]="actor"></app-movie>
+
+  <app-visit-rangle></app-visit-rangle>
+
+  <p appHighlight>Hover to emphasize p tag</p>
+  <div appHighlight>Hover to emphasize div tag</div>
+
+
+
 </div>
 
 

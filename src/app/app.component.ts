@@ -1,13 +1,17 @@
-import { AfterContentInit, AfterViewInit, Component, ElementRef, QueryList, ViewChild,  ViewChildren } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild,  ViewChildren } from '@angular/core';
 import { AlertComponent } from './alert.component';
 import { AlertListQueryComponent } from './alert-list-query.component';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { SearchService } from './services/search.service';
+import 'rxjs/Rx';
+import * as Immutable from 'immutable';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterContentInit {
+export class AppComponent implements AfterContentInit, AfterViewInit, OnInit {
   @ViewChild(AlertComponent) alert: AlertComponent;
   @ViewChild('first') alertF: AlertListQueryComponent;
   @ViewChildren(AlertListQueryComponent) alerts: QueryList<AlertListQueryComponent>;
@@ -32,9 +36,103 @@ export class AppComponent implements AfterContentInit {
     { title: 'Breaker of Chains', director: 'Michelle MacLaren', id: 10 },
     { title: 'Oathkeeper', director: 'Michelle MacLaren', id: 11 }
   ];
-  parentCount: number = 0;
-  constructor( private elementRef: ElementRef ) {
+  parentCount = 0;
+  price = 100.123456;
+  searchField: FormControl;
+  coolForm: FormGroup;
+  result: any;
+
+  slogan = 'Just movie information';
+  title = 'Terminator 1';
+  actor: Immutable.Map<string, string> = Immutable.Map({
+    firstName: 'Arnold',
+    lastName: 'Schwarzenegger'
+  });
+  tab = 0;
+  tabNumber = 0;
+  tabs: any = [
+    { title: 'Tab 1', content: 'Tab content 1' },
+    { title: 'Tab 2', content: 'Tab content 2' },
+    { title: 'Tab 3', content: 'Tab content 3' }
+  ]
+
+  fileSizes = [10, 100, 1000, 10000, 100000, 10000000, 10000000000];
+  largeFileSize = Math.pow(10, 15);
+
+  constructor(
+    private elementRef: ElementRef,
+    private searchService: SearchService,
+    private fb: FormBuilder
+  ) {
     this.helloName = 'Other World';
+    this.searchField = new FormControl();
+    this.coolForm = fb.group({search: this.searchField });
+  }
+
+  ngOnInit() {
+    const movie1 = {
+      name: 'Star Wars',
+      episode: 7
+    };
+
+    const movie11 = Immutable.Map<string, number>({
+      name: 'star wars 1',
+      episode: 8
+    });
+
+    let movie22 = movie11;
+
+    movie22 = movie22.set('episode', 9);
+    const movie2 = Object.assign({}, movie1, { episode: 8 });
+    const movie3 = Object.freeze(Object.assign({}, movie1));
+
+    // movie3.episode = 8;
+
+    console.log(movie1.episode); // writes 7
+    console.log(movie2.episode); // writes 8
+    console.log(movie3.episode); // writes7;
+
+    console.log(movie11.get('episode')); // writes 7
+    console.log(movie22.get('episode')); // writes 8
+    this.mapImmu();
+    this.mutable();
+    this.mapMerge();
+    this.deleteImmu();
+  }
+
+  deleteImmu() {
+    let movie = Immutable.fromJS({
+      name: 'Star Wars',
+      episode: 7,
+      actors: [
+        { name: 'Daisy Ridley', character: 'Rey'},
+        { name: 'Harrison Ford', character: 'Han Solo' }
+      ],
+      mpaa: {
+        rating: 'PG-13',
+        reason: 'sci-fi action violence'
+      }
+    });
+
+    movie = movie.delete('mpaa');
+
+    console.log(movie.toObject());
+  }
+
+  mapMerge() {
+    const baseButton = Immutable.Map<string, any>({
+      text: 'Click me!',
+      state: 'inactive',
+      width: 200,
+      height: 30
+    });
+
+    const submitButton = baseButton.merge({
+      text: 'Submit',
+      state: 'active'
+    });
+
+    console.log(submitButton);
   }
 
   toggleExist() {
@@ -50,7 +148,6 @@ export class AppComponent implements AfterContentInit {
     return episode.id;
   }
 
-  tab: number = 0;
 
   setTab(num: number) {
     this.tab = num;
@@ -59,13 +156,6 @@ export class AppComponent implements AfterContentInit {
   isSelected(num: number) {
     return this.tab === num;
   }
-
-  tabNumber: number = 0;
-  tabs: any = [
-    { title: 'Tab 1', content: 'Tab content 1' },
-    { title: 'Tab 2', content: 'Tab content 2' },
-    { title: 'Tab 3', content: 'Tab content 3' }
-  ]
 
   setTabNum(num: number) {
     this.tabNumber = num;
@@ -93,6 +183,49 @@ export class AppComponent implements AfterContentInit {
 
     tmp.appendChild(el);
     this.node = tmp.innerHTML;
+  }
+
+  search() {
+    this.searchService.search(this.searchField.value)
+      .subscribe( result => {
+        this.result = result.artists.items
+      });
+  }
+
+  changeActor(): void {
+    this.actor = this.actor.merge({firstName: 'Nicholas', lastName: 'Cage'});
+  }
+
+  mapImmu() {
+    const features = Immutable.Map<string, boolean>({
+      'send-links': true,
+      'send-files': true,
+      'local-storage': true,
+      'mirror-notifications': false,
+      'api-access': false
+    });
+
+    const myFeatures = features.reduce((providedFeatures, provided, feature) => {
+      if (provided) {
+        providedFeatures.push(feature);
+      }
+      return providedFeatures;
+    }, []);
+
+    console.log(myFeatures);
+  }
+
+  mutable() {
+    const list = [];
+    let val = "";
+
+    Immutable.Range(0, 1000000)
+      .forEach(function() {
+        val += "concatenation";
+        list.push(val);
+      });
+
+    console.log(list);
   }
 
 }
