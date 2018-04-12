@@ -3,6 +3,12 @@
   <h3 style="color: aquamarine">Pipes</h3>
   <p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" | lowercase }}</p>
   <p>Total price of product is {{ price | currency: "CAD": true: "1.2-4" }}</p>
+  <p>Seconds: {{secondsVal | async}}</p>
+
+  <div>
+    <h3>Implementing Stateful Pipes</h3>
+    This web page has {{ pageViews | animateNumber }} views!
+  </div>
 
   <div>
     <p *ngFor="let f of fileSizes">{{ f | formatFileSize }}</p>

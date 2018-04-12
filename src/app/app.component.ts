@@ -5,6 +5,7 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import { SearchService } from './services/search.service';
 import 'rxjs/Rx';
 import * as Immutable from 'immutable';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -58,6 +59,12 @@ export class AppComponent implements AfterContentInit, AfterViewInit, OnInit {
 
   fileSizes = [10, 100, 1000, 10000, 100000, 10000000, 10000000000];
   largeFileSize = Math.pow(10, 15);
+  fetchPrice = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(10), 500);
+  });
+  secondsVal = Observable.of(0).concat(Observable.interval(1000));
+
+  pageViews = 100;
 
   constructor(
     private elementRef: ElementRef,
@@ -67,6 +74,9 @@ export class AppComponent implements AfterContentInit, AfterViewInit, OnInit {
     this.helloName = 'Other World';
     this.searchField = new FormControl();
     this.coolForm = fb.group({search: this.searchField });
+    setInterval(() => {
+      this.pageViews += Math.round(Math.random() * 10);
+    }, 3000);
   }
 
   ngOnInit() {
@@ -217,11 +227,11 @@ export class AppComponent implements AfterContentInit, AfterViewInit, OnInit {
 
   mutable() {
     const list = [];
-    let val = "";
+    let val: string;
 
     Immutable.Range(0, 1000000)
-      .forEach(function() {
-        val += "concatenation";
+      .forEach(function () {
+        val += 'concatenation';
         list.push(val);
       });
 

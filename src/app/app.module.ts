@@ -45,6 +45,7 @@ import { CardComponent } from './Directive/card.component';
 import { DelayDirective } from './Directive/delay.directive';
 import { FormatFileSizePipe } from './pipes/format-file-size.pipe';
 import { ButtonPressDirective } from './Directive/button-press.directive';
+import { AnimateNumberPipe } from './pipes/animate-number.pipe';
 
 const directs: any[] = [
   AlertComponent,
@@ -86,7 +87,8 @@ const directs: any[] = [
   CardComponent,
   DelayDirective,
   FormatFileSizePipe,
-  ButtonPressDirective
+  ButtonPressDirective,
+  AnimateNumberPipe
 ];
 
 @NgModule({
